@@ -1,0 +1,12 @@
+package main
+
+import "fmt"
+
+func main() {
+	var year int
+	if year%400 == 0 || (year%4 == 0 && year%100 != 0) {
+		fmt.Println(year, "is leap year")
+	} else {
+		fmt.Println(year, "is not leap year")
+	}
+}

@@ -1,0 +1,31 @@
+package main
+
+import (
+	"fmt"
+	"math/rand"
+)
+
+func main() {
+
+	life := 1
+	var guessingNumber int
+	var isWin bool
+	for ; life <= 3; life++ {
+		fmt.Println("Enter Guessing Number: ")
+		fmt.Scanf("%d", &guessingNumber)
+		min := 1
+		max := 10
+		secret := rand.Intn(max-min) + min
+		fmt.Println("Random number is", secret)
+		if guessingNumber == secret {
+			fmt.Println("You Win The Game")
+			isWin = true
+			break
+		} else {
+			fmt.Println("Please guess number again.")
+		}
+	}
+	if life == 3 && isWin != true {
+		fmt.Printf("Game Over.")
+	}
+}
