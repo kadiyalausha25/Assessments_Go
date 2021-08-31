@@ -15,28 +15,21 @@ func transaction(choice int) {
 	var amountToDeposit float32
 	switch choice {
 	case 1:
-
 		fmt.Println("\nPlease enter amount to withdraw: ")
 		fmt.Scan(&amountToWithDraw)
-
 		if amountToWithDraw > balance {
 			fmt.Println("There is no insufficient funds in your account")
 		} else {
 			balance -= amountToWithDraw
 			fmt.Println("You have withdrawn %.2f and your new balance is %.2f ", amountToWithDraw, balance)
 		}
-
 	case 2:
-
 		fmt.Println("\nPlease enter amount to deposit: ")
 		fmt.Scan(&amountToDeposit)
-
 		balance += amountToDeposit
-
 		fmt.Println("Thank you for depositing, new balance is: $%.2f", balance)
 	case 3:
 		fmt.Println("\nYour bank balance is: %.2f", balance)
-
 	}
 
 }
