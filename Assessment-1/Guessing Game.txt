@@ -7,16 +7,13 @@ import (
 
 func main() {
 
-	life := 1
 	var guessingNumber int
 	var isWin bool
+	life := 1
 	for ; life <= 3; life++ {
+		secret := rand.Intn(1000)
 		fmt.Println("Enter Guessing Number: ")
-		fmt.Scanf("%d", &guessingNumber)
-		min := 1
-		max := 10
-		secret := rand.Intn(max-min) + min
-		fmt.Println("Random number is", secret)
+		fmt.Scanln(&guessingNumber)
 		if guessingNumber == secret {
 			fmt.Println("You Win The Game")
 			isWin = true
