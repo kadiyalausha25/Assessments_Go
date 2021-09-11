@@ -1,0 +1,100 @@
+1)Explain why concurrency is not parallelism?
+
+==>parallelism is related to concurrency but not the same, the main difference between the concurrency and parallelism is that concurrency is
+about dealing with a lot of things at same time.parallelism is about doing a lot of things at the same time for increasing the speed.
+==>concurrency is not parallelism because It is the act of running multiple computations simultaneously.
+==>In concurrency we can't use multiple CPU's and the speed is very low in the concurrency when compare with the parallelism.
+==>the debugging process in the concurrency is very hard when compare than that.
+
+
+2)what is GO channel?what operations are available on the channel type?
+
+==>GO channel means is a technique which allows to one goroutine to send data to another goroutine. By default channel is bidirectional,
+  means the goroutines can send or receive data through the same channel 
+==>The available operations in GO channel are send operation and receive operation
+
+
+3)write a simple Golang program that uses a goroutine and a channel?
+
+package main
+import  “fmt”
+
+func Assesment() {
+        fmt.Println(“Heartly”)
+}
+func main() {
+        go Assesment()   
+        fmt.Println(“welcome to LTTS”)
+} 
+
+
+4)How do you specify the direction of a channel type?
+
+we can specify the direction of a channel type by "ch" can only be used by MyFunc to send strings to a receiver elsewhere and MyFunc cannot listen for 
+messages from ch.
+
+
+5)write your own sleep function using time After?
+
+
+package main
+import  “fmt”
+
+func Sleep(x int) {
+  msg := make(chan int)
+  msg := <- time.After(time.Second * x)
+}
+
+
+6)what is buffered channel? how would you create one with a capacity of 20?
+
+ A buffered channel is a type of channel that has storage capacity within it. To create a buffered channel, we add a second argument to the make
+ statement to specify capacity. Due to this channel is buffered, we can send these values into the channel without a corresponding concurrent receive.
+
+  channel name:=make(chan type,20)
+
+
+
+
+8)  package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func Min(x, y int) {
+	if x < y {
+		fmt.Println(x, "is lesser value")
+	} else {
+		fmt.Println(y, "is lesser value")
+	}
+}
+
+func Max(x, y int) {
+	if x < y {
+		fmt.Println(y, "is greater value")
+	} else {
+		fmt.Println(x, "is greater value")
+	}
+}
+
+func main() {
+	var num1, num2 int
+	fmt.Println("Enter two numbers")
+	fmt.Scanln(&num1)
+	fmt.Scanln(&num2)
+	go Min(num1, num2)
+	go Max(num1, num2)
+	time.Sleep(1* time.Second)
+	fmt.Println("Main routine ended")
+}
+
+
+
+
+
+
+
+
+
